@@ -4100,9 +4100,10 @@ function renderMain(){
     case'squad':m.innerHTML=renderSquad();break;
     case'stats':m.innerHTML=renderStats();break;
   }
-  // Inject modals on top
-  var _modalEl=document.getElementById('modal-layer');
-  if(_modalEl)_modalEl.innerHTML=renderConfirmModal()+renderPromptModal();
+  // Inject modals — prepend to main content
+  if(S.confirmPending||S.promptPending){
+    m.innerHTML=renderConfirmModal()+renderPromptModal()+m.innerHTML;
+  }
 }
 function renderNav(){['today','plan','log','fuel','gen','squad','stats'].forEach(t=>document.getElementById('nav-'+t)?.classList.toggle('active',S.tab===t));}
 function setTab(t){
