@@ -445,24 +445,35 @@ body{
 }
 .day-tabs::-webkit-scrollbar{display:none}
 .day-tab{
+  flex-shrink:0;
+
+  padding:9px 14px;
+
+  font-family:var(--display);
+  font-size:22px;
+  letter-spacing:2px;
+
+  background:none;
+
+  color:var(--text3);
+
+  cursor:pointer;
+
+  white-space:nowrap;
+
+  position:relative;
+
+  border:none;
+
   border-radius:14px;
+
+  margin-right:6px;
 
   transition:
     background .16s ease,
     color .16s ease,
     transform .16s ease,
     box-shadow .16s ease;
-
-  border-right:none;
-
-  margin-right:6px;
-}
-  flex-shrink:0;padding:9px 14px;
-  font-family:var(--display);font-size:22px;letter-spacing:1px;letter-spacing:2px;
-  border:none;border-right:1px solid var(--border);
-  background:none;color:var(--text3);cursor:pointer;
-  border-bottom:3px solid transparent;transition:all 0.1s;
-  white-space:nowrap;position:relative;
 }
 .day-tab.active{
   color:#111;
