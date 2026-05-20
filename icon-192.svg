@@ -16,7 +16,7 @@
     </filter>
   </defs>
   <rect width="192" height="192" rx="42" fill="url(#bg)"/>
-  <rect x="9" y="9" width="174" height="174" rx="36" fill="none" stroke="#fff" stroke-opacity=".07"/>
+  <rect x="9" y="9" width="174" height="174" rx="36" fill="none" stroke="#FFFFFF" stroke-opacity=".07"/>
   <g filter="url(#glow)">
     <path d="M40 42h112l-11 18H51L40 42Z" fill="url(#lime)"/>
     <path d="M56 72h80l-11 18H67L56 72Z" fill="url(#lime)"/>
