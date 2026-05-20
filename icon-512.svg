@@ -1,26 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" fill="#060805"/>
-  <path d="M20,20 L52,20 M20,20 L20,52" stroke="#d4a820" stroke-width="7" fill="none"/>
-  <path d="M492,20 L460,20 M492,20 L492,52" stroke="#d4a820" stroke-width="7" fill="none"/>
-  <path d="M20,492 L52,492 M20,492 L20,460" stroke="#d4a820" stroke-width="7" fill="none"/>
-  <path d="M492,492 L460,492 M492,492 L492,460" stroke="#d4a820" stroke-width="7" fill="none"/>
-  <rect x="166" y="90" width="180" height="244" rx="24" fill="#0e1408" stroke="#d4a820" stroke-width="6"/>
-  <rect x="242" y="316" width="28" height="18" rx="5" fill="#0e1408" stroke="#d4a820" stroke-width="5"/>
-  <circle cx="256" cy="350" r="6" fill="#d4a820" opacity="0.7"/>
-  <circle cx="256" cy="372" r="6" fill="#d4a820" opacity="0.7"/>
-  <circle cx="256" cy="394" r="6" fill="#d4a820" opacity="0.7"/>
-  <rect x="110" y="196" width="292" height="24" rx="6" fill="#8aaa30"/>
-  <rect x="96" y="166" width="42" height="84" rx="10" fill="#8aaa30"/>
-  <rect x="106" y="176" width="24" height="64" rx="6" fill="#6a8a22"/>
-  <rect x="374" y="166" width="42" height="84" rx="10" fill="#8aaa30"/>
-  <rect x="382" y="176" width="24" height="64" rx="6" fill="#6a8a22"/>
-  <rect x="138" y="178" width="20" height="60" rx="5" fill="#d4a820"/>
-  <rect x="354" y="178" width="20" height="60" rx="5" fill="#d4a820"/>
-  <text x="204" y="152" font-family="Arial" font-size="20" fill="#d4a820" text-anchor="middle">★</text>
-  <text x="308" y="152" font-family="Arial" font-size="20" fill="#d4a820" text-anchor="middle">★</text>
-  <line x1="192" y1="162" x2="320" y2="162" stroke="#d4a820" stroke-width="1.5" opacity="0.35"/>
-  <line x1="192" y1="255" x2="320" y2="255" stroke="#d4a820" stroke-width="1.5" opacity="0.35"/>
-  <line x1="192" y1="270" x2="320" y2="270" stroke="#d4a820" stroke-width="1.5" opacity="0.35"/>
-  <text x="256" y="246" font-family="Arial,sans-serif" font-weight="bold" font-size="34" fill="#d4a820" text-anchor="middle" letter-spacing="8">GRIND</text>
-  <text x="256" y="310" font-family="Arial,sans-serif" font-size="14" fill="#d4a820" text-anchor="middle" letter-spacing="4" opacity="0.7">SQUAD</text>
+  <defs>
+    <linearGradient id="bg" x1="64" y1="20" x2="452" y2="496" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E2120"/>
+      <stop offset="1" stop-color="#080B0B"/>
+    </linearGradient>
+    <linearGradient id="lime" x1="112" y1="102" x2="400" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B7F36B"/>
+      <stop offset=".45" stop-color="#A6CB2A"/>
+      <stop offset="1" stop-color="#80961F"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.65 0 0 0 0 0.8 0 0 0 0 0.16 0 0 0 .55 0"/>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="24" y="24" width="464" height="464" rx="96" fill="none" stroke="#fff" stroke-opacity=".07"/>
+  <g filter="url(#glow)">
+    <path d="M106 112h300l-30 48H136l-30-48Z" fill="url(#lime)"/>
+    <path d="M150 192h212l-30 48H180l-30-48Z" fill="url(#lime)"/>
+    <path d="M187 270h138l-69 48-69-48Z" fill="url(#lime)"/>
+    <path d="M160 326 256 396l96-70v48l-96 70-96-70v-48Z" fill="url(#lime)" opacity=".94"/>
+  </g>
 </svg>
