@@ -74,6 +74,21 @@
   --safe-b:env(safe-area-inset-bottom,0px);
   --safe-t:env(safe-area-inset-top,0px);
 }
+/* ---- PREMIUM TYPOGRAPHY BALANCE ---- */
+
+.hist-sub,
+.fuel-target,
+.checkin-summary,
+.fuel-status,
+.protein-meta,
+.briefing-sub,
+.fuel-entry-time,
+.phase-week,
+.pt-input-label{
+  font-family:var(--body);
+  font-weight:500;
+  letter-spacing:.04em;
+}
 
 /* Force dark color-scheme on all form controls — prevents iOS white bg */
 input,select,textarea{color-scheme:dark}
@@ -437,23 +452,33 @@ body{
 .phase-card::before{display:none;}
 .phase-card-stripe{width:4px;flex-shrink:0;align-self:stretch}
 .day-tabs{
-  display:flex;gap:0;
-  border-bottom:1px solid var(--border);
-  padding:0;
-  overflow-x:auto;scrollbar-width:none;
-  background:var(--bg3);
+  display:flex;
+  gap:8px;
+
+  padding:8px;
+
+  overflow-x:auto;
+  scrollbar-width:none;
+
+  background:rgba(255,255,255,.02);
+
+  border-bottom:1px solid rgba(255,255,255,.04);
 }
-.day-tabs::-webkit-scrollbar{display:none}
+
+.day-tabs::-webkit-scrollbar{
+  display:none;
+}
+
 .day-tab{
   flex-shrink:0;
 
-  padding:9px 14px;
+  padding:10px 16px;
 
   font-family:var(--display);
-  font-size:22px;
+  font-size:20px;
   letter-spacing:2px;
 
-  background:none;
+  background:transparent;
 
   color:var(--text3);
 
@@ -467,14 +492,17 @@ body{
 
   border-radius:14px;
 
-  margin-right:6px;
-
   transition:
     background .16s ease,
     color .16s ease,
-    transform .16s ease,
-    box-shadow .16s ease;
+    box-shadow .16s ease,
+    opacity .16s ease;
 }
+
+.day-tab:hover{
+  background:rgba(255,255,255,.03);
+}
+
 .day-tab.active{
   color:#111;
 
@@ -496,7 +524,7 @@ body{
 /* ---- LOG ---- */
 .log-ex{
   background:var(--bg2);border:1px solid var(--border);
-  margin-bottom:8px;border-left:3px solid var(--border2);
+  margin-bottom:12px;border-left:3px solid var(--border2);
 }
 .log-ex-head{
   padding:11px 14px 9px;
@@ -663,7 +691,7 @@ textarea.notes::placeholder{color:var(--text3)}
 .food-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px}
 .food-tile{
   background:var(--bg2);border:1px solid var(--border);
-  padding:10px 11px;cursor:pointer;text-align:left;
+  padding:12px 11px;cursor:pointer;text-align:left;
   transition:all 0.1s;position:relative;
 }
 .food-tile:active{background:var(--bg3);border-color:var(--green-border)}
@@ -685,7 +713,7 @@ textarea.notes::placeholder{color:var(--text3)}
   border-radius:var(--radius);
   padding:9px 12px;
   display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:5px;
+  margin-bottom:12px;
 }
 .fuel-entry-main{flex:1;min-width:0}
 .fuel-entry-name{
@@ -708,7 +736,7 @@ textarea.notes::placeholder{color:var(--text3)}
 .timing-card{
   background:var(--bg2);border:1px solid var(--border);
   border-left:3px solid var(--accent);
-  padding:12px;margin-bottom:8px;
+  padding:12px;margin-bottom:12px;
 }
 .timing-title{font-family:var(--display);font-size:22px;letter-spacing:1px;letter-spacing:2px;color:var(--accent);margin-bottom:6px}
 .timing-text{font-family:var(--body);font-weight:400;font-size:17px;color:var(--text2);line-height:1.5}
@@ -784,7 +812,7 @@ textarea.notes::placeholder{color:var(--text3)}
 /* ---- HISTORY ---- */
 .hist-entry{
   background:var(--bg2);border:1px solid var(--border);
-  margin-bottom:8px;overflow:hidden;
+  margin-bottom:12px;overflow:hidden;
 }
 .hist-head{
   padding:12px 16px;
@@ -1099,8 +1127,20 @@ input::placeholder, textarea::placeholder {
 .protein-card,
 .briefing-card{
   border-radius:var(--radius);
-  box-shadow:var(--shadow-soft);
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,.28);
+
   border:1px solid rgba(255,255,255,.05);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.03),
+      rgba(255,255,255,.015)
+    );
+
+  backdrop-filter:blur(6px);
 }
 
 /* HERO FEEL */
@@ -1245,8 +1285,11 @@ textarea.notes,
 }
 
 .card:active,
-.food-tile:active{
+.food-tile:active,
+.log-ex:active,
+.hist-entry:active{
   transform:scale(.985);
+  opacity:.96;
 }
 
 /* ============================================================
@@ -1508,6 +1551,16 @@ textarea.notes,
   --green:#B7F36B;
   --green-border:#587a20;
   --green-bg:rgba(183,243,107,.08);
+}
+
+/* ---- SHARPEN SIGNATURE GLOW ---- */
+
+.today-date,
+.stat-value,
+.fuel-big-number,
+.protein-current{
+  text-shadow:
+    0 0 24px rgba(183,243,107,.08);
 }
 
 </style>
@@ -2851,7 +2904,7 @@ function renderGoalCreator() {
       '<div style="font-family:var(--display);font-size:32px;letter-spacing:3px;color:var(--text);margin-bottom:20px">PRIMARY DISCIPLINE</div>' +
       DISCIPLINES.map(function(disc) {
         var on = d.discipline === disc.id;
-        return '<button data-disc="' + disc.id + '" onclick="gbSetDisc(this.dataset.disc)" style="display:block;width:100%;padding:14px 16px;margin-bottom:8px;background:' + (on?'var(--bg4)':'var(--bg2)') + ';border:1px solid ' + (on?'var(--accent-border)':'var(--border)') + ';border-left:3px solid ' + (on?'var(--accent)':'var(--border2)') + ';color:var(--text);text-align:left;cursor:pointer">' +
+        return '<button data-disc="' + disc.id + '" onclick="gbSetDisc(this.dataset.disc)" style="display:block;width:100%;padding:14=6px 16px;margin-bottom:12px;background:' + (on?'var(--bg4)':'var(--bg2)') + ';border:1px solid ' + (on?'var(--accent-border)':'var(--border)') + ';border-left:3px solid ' + (on?'var(--accent)':'var(--border2)') + ';color:var(--text);text-align:left;cursor:pointer">' +
           '<div style="font-family:var(--display);font-size:17px;letter-spacing:2px;color:' + (on?'var(--accent)':'var(--text)') + '">' + disc.label + '</div>' +
           '<div style="font-family:var(--body);font-size:13px;color:var(--text2);margin-top:3px">' + disc.desc + '</div></button>';
       }).join('') + '</div>';
@@ -2862,7 +2915,7 @@ function renderGoalCreator() {
       return '<div class="fade-in" style="padding:24px 16px">' + hdr +
         '<div style="font-family:var(--display);font-size:32px;letter-spacing:3px;color:var(--text);margin-bottom:20px">ACTIVITY</div>' +
         ENDURANCE_ACTIVITIES.map(function(a) {
-          return '<button data-act="' + a.id + '" onclick="gbSetActivity(this.dataset.act)" style="display:block;width:100%;padding:14px 16px;margin-bottom:8px;background:var(--bg2);border:1px solid var(--border);color:var(--text2);text-align:left;cursor:pointer;font-family:var(--display);font-size:17px;letter-spacing:2px">' + a.label + '</button>';
+          return '<button data-act="' + a.id + '" onclick="gbSetActivity(this.dataset.act)" style="display:block;width:100%;padding:16px 16px;margin-bottom:12px;background:var(--bg2);border:1px solid var(--border);color:var(--text2);text-align:left;cursor:pointer;font-family:var(--display);font-size:17px;letter-spacing:2px">' + a.label + '</button>';
         }).join('') + '</div>';
     }
     if (d.discipline === 'endurance' && d.activity && !d.goalType) {
@@ -2870,7 +2923,7 @@ function renderGoalCreator() {
       return '<div class="fade-in" style="padding:24px 16px">' + hdr +
         '<div style="font-family:var(--display);font-size:32px;letter-spacing:3px;color:var(--text);margin-bottom:20px">GOAL TYPE</div>' +
         types.map(function(t) {
-          return '<button data-gt="' + t.id + '" onclick="gbSetGoalType(this.dataset.gt)" style="display:block;width:100%;padding:14px 16px;margin-bottom:8px;background:var(--bg2);border:1px solid var(--border);color:var(--text2);text-align:left;cursor:pointer;font-family:var(--display);font-size:17px;letter-spacing:2px">' + t.label + '</button>';
+          return '<button data-gt="' + t.id + '" onclick="gbSetGoalType(this.dataset.gt)" style="display:block;width:100%;padding:16px 16px;margin-bottom:12px;background:var(--bg2);border:1px solid var(--border);color:var(--text2);text-align:left;cursor:pointer;font-family:var(--display);font-size:17px;letter-spacing:2px">' + t.label + '</button>';
         }).join('') + '</div>';
     }
     GB.step = 4; return renderGoalCreator();
@@ -2885,7 +2938,7 @@ function renderGoalCreator() {
       available.map(function(disc) {
         var on = selected.includes(disc.id);
         var blocked = !on && selected.length >= 2;
-        return '<button data-xt="' + disc.id + '" onclick="' + (blocked ? '' : 'gbToggleXtrain(this.dataset.xt)') + '" style="display:block;width:100%;padding:14px 16px;margin-bottom:8px;background:' + (on?'var(--bg4)':'var(--bg2)') + ';border:1px solid ' + (on?'var(--accent-border)':'var(--border)') + ';border-left:3px solid ' + (on?'var(--accent)':'var(--border2)') + ';color:' + (blocked?'var(--text4)':on?'var(--accent)':'var(--text2)') + ';text-align:left;cursor:' + (blocked?'default':'pointer') + '">' +
+        return '<button data-xt="' + disc.id + '" onclick="' + (blocked ? '' : 'gbToggleXtrain(this.dataset.xt)') + '" style="display:block;width:100%;padding:16px 16px;margin-bottom:12px;background:' + (on?'var(--bg4)':'var(--bg2)') + ';border:1px solid ' + (on?'var(--accent-border)':'var(--border)') + ';border-left:3px solid ' + (on?'var(--accent)':'var(--border2)') + ';color:' + (blocked?'var(--text4)':on?'var(--accent)':'var(--text2)') + ';text-align:left;cursor:' + (blocked?'default':'pointer') + '">' +
           '<div style="font-family:var(--display);font-size:17px;letter-spacing:2px">' + (on?'+ ':'') + disc.label + '</div>' +
           '<div style="font-family:var(--body);font-size:12px;color:var(--text3);margin-top:2px">' + disc.desc + '</div></button>';
       }).join('') +
@@ -2896,7 +2949,7 @@ function renderGoalCreator() {
     return '<div class="fade-in" style="padding:24px 16px">' + hdr +
       '<div style="font-family:var(--display);font-size:26px;letter-spacing:2px;color:var(--text);margin-bottom:6px">DO YOU HAVE A PLAN?</div>' +
       '<div style="font-family:var(--body);font-size:14px;color:var(--text2);margin-bottom:20px">The app can build one for you, or just track your own.</div>' +
-      '<button onclick="gbPlanApp()" style="display:block;width:100%;padding:14px 16px;margin-bottom:8px;background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--green);color:var(--text);text-align:left;cursor:pointer">' +
+      '<button onclick="gbPlanApp()" style="display:block;width:100%;padding:16px 16px;margin-bottom:12px;background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--green);color:var(--text);text-align:left;cursor:pointer">' +
       '<div style="font-family:var(--display);font-size:17px;letter-spacing:2px;color:var(--green)">BUILD A PLAN FOR ME</div>' +
       '<div style="font-family:var(--body);font-size:13px;color:var(--text2);margin-top:3px">Answer a few questions — app generates your schedule</div></button>' +
       '<button onclick="gbPlanOwn()" style="display:block;width:100%;padding:14px 16px;margin-bottom:8px;background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--accent);color:var(--text);text-align:left;cursor:pointer">' +
