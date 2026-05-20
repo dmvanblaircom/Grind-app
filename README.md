@@ -1,6 +1,6 @@
-# GRIND — Reclaim Your Standard
+# FORGE — Stay Sharp
 
-**14-week personal training program with squad accountability and pregnancy safe mode.**
+**14-week personal training program with group accountability and pregnancy safe mode.**
 
 ---
 
@@ -8,9 +8,9 @@
 
 1. Deploy this folder to GitHub Pages (see DEPLOY.md)
 2. Open your GitHub Pages URL in Safari on your phone
-3. Share → Add to Home Screen → GRIND
+3. Share → Add to Home Screen → FORGE
 4. Set up your name, gender, and mode on first launch
-5. Connect Supabase for squad features (see SQUAD-SETUP.md)
+5. Connect Supabase for group features (see SQUAD-SETUP.md)
 
 ---
 
@@ -24,7 +24,7 @@
 | `icon-512.svg` | App icon (large) |
 | `icon-192.svg` | App icon (small) |
 | `apple-touch-icon.svg` | iOS home screen icon |
-| `SQUAD-SETUP.md` | Connect the shared squad feed |
+| `SQUAD-SETUP.md` | Connect the shared group feed |
 | `README.md` | This file |
 
 ---
@@ -33,12 +33,12 @@
 
 | Tab | What it does |
 |-----|-------------|
-| **TODAY** | Daily check-in · Week briefing · Today's workout · Protein bar |
-| **PLAN** | Full 14-week plan · Proactive rescheduling · Move workouts ahead |
-| **LOG** | Log sets, reps, weight · Save + Send to Squad |
+| **HOME** | Daily check-in · Week briefing · Today's workout · Protein bar |
+| **WORKOUT** | Full 14-week plan · Proactive rescheduling · Move workouts ahead |
+| **LOG** | Log sets, reps, weight · Save + Send to Group |
 | **FUEL** | Protein tracking · Quick-add foods · Timing guidance |
 | **BUILD** | Offline workout generator · Home/away · Pregnancy safe mode |
-| **SQUAD** | Live squad activity feed · Expandable workout details |
+| **GROUP** | Live group activity feed · Expandable workout details |
 | **STATS** | Completion rate · PT benchmarks · Body metrics · History |
 
 ---
@@ -66,4 +66,4 @@ For female users — toggle on during profile setup or via Program Settings.
 
 ---
 
-*No ads. No tracking. Data stays on your device (except squad workouts shared via Supabase).*
+*No ads. No tracking. Data stays on your device (except group workouts shared via Supabase).*
