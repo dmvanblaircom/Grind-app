@@ -445,6 +445,18 @@ body{
 }
 .day-tabs::-webkit-scrollbar{display:none}
 .day-tab{
+  border-radius:14px;
+
+  transition:
+    background .16s ease,
+    color .16s ease,
+    transform .16s ease,
+    box-shadow .16s ease;
+
+  border-right:none;
+
+  margin-right:6px;
+}
   flex-shrink:0;padding:9px 14px;
   font-family:var(--display);font-size:22px;letter-spacing:1px;letter-spacing:2px;
   border:none;border-right:1px solid var(--border);
@@ -453,8 +465,23 @@ body{
   white-space:nowrap;position:relative;
 }
 .day-tab.active{
-  color:var(--accent);background:var(--bg2);
-  border-bottom-color:var(--accent);
+  color:#111;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(183,243,107,1),
+      rgba(167,230,90,1)
+    );
+
+  border-bottom-color:transparent;
+
+  box-shadow:
+    0 6px 18px rgba(183,243,107,.18);
+
+  font-weight:700;
+
+  transform:translateY(-1px);
 }
 
 /* ---- LOG ---- */
