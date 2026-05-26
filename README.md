@@ -6,7 +6,7 @@ Built as a PWA — installs to your home screen, works offline, no App Store req
 
 ---
 
-## Features
+## Features 
 
 - **Goal-driven programs** — set a goal, build a program to achieve it
 - **Forge Score** — daily performance index tracking consistency, readiness, and streak
